@@ -1,80 +1,605 @@
-/*
-Theme Name: 	Starkers
-Theme URI: 		http://viewportindustries.com/products/starkers
-Description: 	The totally nude Wordpress theme!
-Version: 		4.0
-Author: 		Elliot Jay Stocks & Keir Whitaker
-Author URI: 	http://viewportindustries.com
-Tags: 			starkers, naked, clean, basic
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
 */
 
-/*
-===========================
-CONTENTS:
-
-01 Sensible defaults
-02 Typography
-03 Media queries 
-===========================
-*/
-
-/* ---------------------------------------------------------------------------------------------------------- 
-01 Sensible defaults ----------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------- */
-
-@import "css/reset.css";
-
-div,
-article,
-section,
-header,
-footer,
-nav,
-li					{ position:relative; /* For absolutely positioning elements within containers (add more to the list if need be) */ }
-.group:after 		{ display:block; height:0; clear:both; content:"."; visibility:hidden; /* For clearing */ }
-body 				{ background:#fff; /* Don't forget to style your body to avoid user overrides */ }
-::-moz-selection 	{ background:#ff0; color:#333; }
-::selection 		{ background:#ff0; color:#333; }
-
-/* ---------------------------------------------------------------------------------------------------------- 
-02 Typography -----------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------- */
-/*
-
-14 / 16	= 		0.875em 		(14px equivalent)
-16 / 16	= 		1em 			(16px equivalent)
-18 / 16 = 		1.125em 		(18px equivalent)
-21 / 16 = 		1.3125em 		(21px equivalent)
-24 / 16 = 		1.5em 			(24px equivalent)
-30 / 16 = 		1.875em 		(30px equivalent)
-
-*/
-
-body,
-input,
-textarea 			{ /* We strongly recommend you declare font-weight using numerical values, but check to see which weights you're exporting first */ }
-
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6 					{ font-weight:bold; /* This helps to identify headings at the initial build stage, but you should write something more precise later on */ }
-
-/* ---------------------------------------------------------------------------------------------------------- 
-03 Media queries (using a mobile-first approach) ------------------------------------------------------------
----------------------------------------------------------------------------------------------------------- */
-
-/* 400 and up */
-@media screen and (min-width:400px) {
-
-					{ /* Place your styles here for all widths greater than 400px */ }
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body{
+background:url("imgs/bg.jpg");
+font-family: Segoe UI, sans-serif;
+color:#555555;
+line-height:1.5em;
+font-size:14px;
+text-shadow: 0px 1px 0px #ECECEC;
+}
+a{
+text-decoration:none;
+color:#555;
+}
+em{
+font-style:italic;
+}
+strong{
+font-weight:bold;
+}
+.clear{
+clear:both;
+}
+@font-face {
+    font-family: 'equal_sans_demoregular';
+    src: url('fonts/equalsans_demo-webfont.eot');
+    src: url('fonts/equalsans_demo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/equalsans_demo-webfont.woff') format('woff'),
+         url('fonts/equalsans_demo-webfont.ttf') format('truetype'),
+         url('fonts/equalsans_demo-webfont.svg#equal_sans_demoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
 }
 
-/* Retina Display */
-@media screen and (-webkit-min-device-pixel-ratio:2) {
+#header,#footer{
+height:155px;
+position: relative;
+z-index:2;
+box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.44);
+}
+#footer{
+background: transparent url(imgs/doted.png) repeat-x;
+background-position-y: 5px;
+}
+#header{
+background: transparent url(imgs/doted.png) repeat-x;
+background-position-y: 147px;
+}
+#header_content,#content,#footer_content{
+width:960px;
+margin:0 auto;
+height:100%
+}
+#content_wrapper{
+background:white;
+position: relative;
+padding-top:40px;
+padding-bottom:40px;
+}
+#logo a {
+position: absolute;
+width: 203px;
+height: 186px;
+display: block;
+background: url(imgs/logo.png) no-repeat;
+-webkit-transition: all linear 200ms;
+}
+#logo a:hover{
+margin-top:10px;
+}
+#logo {
+margin-left: -6px;
+width: 203px;
+height: 155px;
+position: relative;
+float: left;
+}
+#logo::before {
+z-index: 3;
+border-radius: 100%;
+left: -5px;
+top: 0;
+content: "";
+display: block;
+width: 210px;
+height: 14px;
+position: absolute;
+box-shadow: 0px 0px 17px 0px rgba(0, 0, 0, 0.44);
+}
+#logo::after {
+z-index: 3;
+left: -23px;
+background: black;
+top: 0;
+content: "";
+display: block;
+width: 250px;
+height: 15px;
+background: url(imgs/bg.jpg);
+position: absolute;
+}
+#menu{
+margin-top: 60px;
+float:right
+}
+#menu li {
+margin-left: 28px;
+float: left;
+}
+#menu .first {
+margin-left: 0px;
+}
+#menu a{
+font-family:equal_sans_demoregular;
+color:#888888;
+font-size: 27px;
+text-decoration:none;
+text-shadow: 0px 1px 0px whiteSmoke;
+position:relative;
+-webkit-transition: all linear 100ms;
+}
+#menu a:hover{
+color:#ee1a2d;
+}
 
-					{ /* Place your styles here for all 'Retina' screens */ }
+#menu a:hover::after {
+bottom: -9px;
+border-radius: 10px;
+display: block;
+position: absolute;
+width: 100%;
+height: 3px;
+content: "";
+background: #EE1A2D;
+-webkit-transition: all linear 200ms;
+}
+#menu ul {
+position: relative;
+}
 
+#menu ul::after {
+bottom: -11px;
+border-bottom: 1px solid #EBEBEB;
+border-radius: 10px;
+display: block;
+position: absolute;
+width: 100%;
+height: 4px;
+box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+content: "";
+}
+
+#add_this {
+position: relative;
+margin-top: 26px;
+width: 125px;
+clear: right;
+float: right;
+}
+#add_this a:hover {
+margin-top: 9px;
+-webkit-transition: all linear 200ms;
+}
+#add_t {
+height: 32px;
+width: 32px;
+display: block;
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+background-position-x: -94px;
+background-position-y: -169px;
+}
+#add_g {
+height: 32px;
+width: 32px;
+display: block;
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+background-position-x: -53px;
+background-position-y: -169px;
+}
+#add_f {
+height: 32px;
+width: 32px;
+display: block;
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+background-position-x: -6px;
+background-position-y: -169px;
+}
+#add_this li {
+float: left;
+}
+#add_this::before {
+z-index: 3;
+border-radius: 100%;
+left: -16px;
+top: 5px;
+content: "";
+display: block;
+width: 127px;
+height: 2px;
+position: absolute;
+box-shadow: 0px 0px 17px 5px rgba(0, 0, 0, 0.44);
+}
+#add_this::after {
+z-index: 3;
+left: -63px;
+background: black;
+top: -12px;
+content: "";
+display: block;
+width: 250px;
+height: 22px;
+background: url(imgs/bg.jpg);
+position: absolute;
+}
+#contenu{
+width:615px;
+float:left;
+position:relative;
+}
+#sidebar {
+padding: 22px;
+background:url("imgs/bg.jpg");
+width: 271px;
+float: right;
+}
+#contenu article {
+margin-bottom: 25px;
+padding: 22px;
+background:url("imgs/bg.jpg");
+}
+.bandeau {
+position: relative;
+margin-left: -30px;
+margin-top: -15px;
+display: inline-block;
+text-shadow: 0px 1px 0px #888;
+color: white;
+font-size: 28px;
+font-family: equal_sans_demoregular;
+padding-top: 10px;
+padding-right: 10px;
+padding-bottom: 9px;
+padding-left: 50px;
+background: #B0CFEC;
+box-shadow: 3px 3px 3px 0px #C5C5C5;
+margin-bottom:15px;
+}
+.bandeau::before {
+width: 35px;
+bottom: 2px;
+left: 7px;
+content: "";
+display: block;
+position: absolute;
+height: 35px;
+}
+.bandeau.recrut::before {
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+background-position-y: -1px;
+background-position-x: -1px;
+}
+.bandeau.une::before {
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+background-position-x: -44px;
+background-position-y: -2px;
+
+}
+.bandeau.login:before {
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+background-position-x: -89px;
+background-position-y: -2px;
+}
+.bandeau.actus:before {
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+background-position-x: -1px;
+background-position-y: -41px;
+}
+.bandeau.contact:before {
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+background-position-x: -47px;
+background-position-y: -41px;
+}
+.bandeau.actus, .bandeau.contact {
+margin-top: 0;
+}
+.bandeau::after {
+bottom: -5px;
+left: 0;
+border-left: 8px solid transparent;
+content: "";
+display: block;
+position: absolute;
+border-top: 5px solid #5B7A97;
+}
+
+article:hover .bandeau, #box_login:hover .bandeau,#box_actus:hover .bandeau, #box_contact:hover .bandeau {
+-webkit-transition: all linear 200ms;
+background: #97BFE6;
+}
+.login_input, .mdp_input {
+vertical-align: middle;
+padding: 0;
+display: inline-block;
+border: 1px solid #AFAFAF;
+border-radius: 0 3px 3px 0;
+height: 30px;
+width: 238px;
+text-indent: 5px;
+-webkit-transition: all linear 200ms;
+}
+.login_input:focus, .mdp_input:focus {
+outline:none;
+box-shadow: inset 1px 1px 3px 0px #C2C2C2;
+}
+.login_input:hover, .mdp_input:hover  {
+background: #ECF0F5;
+}
+
+.before_login_input, .before_mdp_input {
+background: #F3F3F3;
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+vertical-align: middle;
+display: inline-block;
+border: 1px solid #AFAFAF;
+border-radius: 3px 0 0 3px;
+height: 30px;
+width: 30px;
+border-right: none;
+}
+
+.login_input, .mdp_input,.before_login_input, .before_mdp_input {
+margin-bottom: 15px;
+}
+.before_login_input {
+background-position-y: -81px;
+background-position-x: -92px;
+}
+.before_mdp_input {
+background-position-y: -42px;
+background-position-x: -91px;
+}
+.right_button {
+text-shadow: 0px 1px 0px black;
+font-size: 22px;
+color: white;
+font-family: equal_sans_demoregular;
+box-shadow: 0px 4px 0px 0px #636363;
+display: block;
+height: 35px;
+background: #888;
+float: right;
+width: 115px;
+border: none;
+border-radius: 5px;
+cursor:pointer;
+margin-bottom:3px;
+-webkit-transition: all linear 200ms;
+}
+.right_button:hover {
+background: #747474;
+margin-top: 3px;
+box-shadow: 0px 1px 0px 0px #636363;
+margin-bottom: 0px;
+}
+
+.right_button:active {
+background: #6B6B6B;
+}
+
+.right_button.contact_link {
+line-height: 35px;
+text-align: center;
+}
+#list_actus {
+height: 155px;
+width: 271px;
+}
+#list_actus li a {
+font-size:18px;
+font-weight:bold;
+}
+#list_actus li p em {
+font-size:12px;
+margin-top:5px;
+margin-bottom:5px;
+}
+#list_actus li p{
+text-align:justify;
+}
+.all_actus {
+text-decoration: underline;
+font-size: 14px;
+color: #555;
+font-weight: bold;
+float: right;
+}
+
+.anythingSlider-min.activeSlider .anythingControls a.cur, .anythingSlider-min.activeSlider .anythingControls a:hover {
+background-color: #3C3C3C;
+color: black;
+}
+
+.anythingSlider-min.activeSlider .anythingControls a {
+background-color: #888;
+}
+
+
+.anythingSlider-min .anythingControls ul a {
+display: inline-block;
+width: 10px;
+height: 10px;
+margin: 3px;
+padding: 0;
+text-decoration: none;
+text-align: center;
+outline: 0;
+}
+.anythingSlider-min .anythingControls span {
+display: block;
+visibility: hidden;
+}
+.anythingSlider-min .anythingControls ul li {
+list-style: none;
+float: left;
+margin: 0;
+padding: 0;
+}
+.anythingSlider-min .anythingControls ul {
+margin: 0;
+padding: 0;
+float: left;
+}
+.anythingSlider-min .anythingControls {
+height: 15px;
+outline: 0;
+float: left;
+bottom: 5px;
+right: 20px;
+z-index: 100;
+opacity: 0.90;
+filter: alpha(opacity=90);
+}
+#box_actus {
+margin-bottom: 15px;
+}
+.text_recrut {
+float: left;
+text-align: justify;
+width: 340px;
+}
+.button_cv {
+line-height: 139px;
+text-align: center;
+text-shadow: 0px 1px 0px black;
+font-size: 34px;
+color: white;
+font-family: equal_sans_demoregular;
+box-shadow: 0px 4px 0px 0px #A50E1B;
+display: block;
+height: 139px;
+background: #EE1A2D;
+float: right;
+width: 200px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-bottom: 3px;
+-webkit-transition: all linear 200ms;
+}
+.button_cv:hover {
+background: #DF192B;
+margin-top: 3px;
+box-shadow: 0px 1px 0px 0px #636363;
+margin-bottom: 0px;
+}
+.button_cv:active {
+background: #B91221;
+}
+
+#socials {
+color: #888;
+font-size: 22px;
+margin-top: 20px;
+float: left;
+font-family: equal_sans_demoregular;
+}
+#socials div {
+font-size: 32px;
+}
+
+#socials a {
+margin-top: 27px;
+padding-left: 40px;
+margin-left: 20px;
+display: block;
+color: #888;
+position:relative;
+}
+#slogan {
+margin-top: 20px;
+text-indent: -9999px;
+float: right;
+background: transparent url('imgs/slogan.png');
+width: 300px;
+height: 38px;
+}
+#address {
+margin-top: 55px;
+float: right;
+clear: right;
+}
+#address address {
+display: inline-block;
+margin-right: 8px;
+}
+#page_fb::before {
+left: -4px;
+top: -14px;
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+background-position-y: -73px;
+background-position-x: -1px;
+position: absolute;
+content: "";
+display: block;
+width: 45px;
+height: 45px;
+}
+#chaine_ytb::before {
+left: -4px;
+top: -10px;
+background-image: url(imgs/sprites.png);
+background-repeat: no-repeat;
+background-position-y: -120px;
+background-position-x: -1px;
+position: absolute;
+content: "";
+display: block;
+width: 45px;
+height: 45px;
+}
+#page_fb:hover::before {
+background-position-y: -74px;
+background-position-x: -50px;
+}
+#chaine_ytb:hover::before {
+background-position-y: -122px;
+background-position-x: -49px;
 }
