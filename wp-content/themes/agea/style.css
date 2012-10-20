@@ -295,6 +295,9 @@ background: #B0CFEC;
 box-shadow: 3px 3px 3px 0px #C5C5C5;
 margin-bottom:15px;
 }
+.bandeau.une {
+margin-right: 260px;
+}
 .bandeau::before {
 width: 35px;
 bottom: 2px;
@@ -602,4 +605,16 @@ background-position-x: -50px;
 #chaine_ytb:hover::before {
 background-position-y: -122px;
 background-position-x: -49px;
+}
+.image_une {
+margin-top: 7px;
+margin-right: 10px;
+border: 5px solid white;
+max-width: 225px;
+float: left;
+max-height: 250px;
+overflow: hidden;
+}
+.image_une  img{
+width: 100%;
 }

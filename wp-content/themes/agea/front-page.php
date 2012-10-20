@@ -53,10 +53,17 @@
 			
 			<article>
 			<div class="bandeau une">À la une</div>
-			<div class="image_une"><img src="" alt="" /></div>
+			<div class="image_une"><img src="<?php bloginfo('template_url'); ?>/imgs/photo1.jpg" alt="" /></div>
 			<p class="text_une">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 			Aliquam vitae leo lectus, eu facilisis erat. Ut feugiat imperdiet consectetur.
+			Sed ante ante, commodo eu suscipit et, pulvinar et ante.
+			Pellentesque ac purus odio, vel interdum enim.
+			Quisque lobortis fermentum elit, ac consectetur urna congue sit amet.
+			Pellentesque vehicula commodo adipiscing. 
+			dum ipsum orci vel mi.Sed ante ante, commodo eu suscipit et, pulvinar et ante. 
+			Pellentesque ac purus odio, vel interdum enim. 
+			Quisque lobortis fermentum elit, ac consectetur urna Aliquam vitae leo lectus, eu facilisis erat. Ut feugiat imperdiet consectetur.
 			Sed ante ante, commodo eu suscipit et, pulvinar et ante.
 			Pellentesque ac purus odio, vel interdum enim.
 			Quisque lobortis fermentum elit, ac consectetur urna congue sit amet.
