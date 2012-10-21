@@ -156,7 +156,7 @@
 	buildNavigation     : true,      // If true, builds a list of anchor links to link to each panel 
 	buildStartStop      : false,  
 toggleControls      : false,
- autoPlay            : true,    
+ autoPlay            : false,    
   pauseOnHover        : true,
     delay               : 5000
   }) 
