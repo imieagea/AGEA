@@ -26,6 +26,7 @@
 toggleControls      : false,
  autoPlay            : false,    
   pauseOnHover        : true,
+  hashTags            : false,
     delay               : 5000
   }) 
  
