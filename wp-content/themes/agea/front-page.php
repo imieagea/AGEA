@@ -19,6 +19,7 @@
 			<div class="text_une">
 			<?php the_content(); ?>
 			</div>
+			<div class="clear"></div>
 			<?php endwhile;endif; ?>	
 			</article>
 		</section>
