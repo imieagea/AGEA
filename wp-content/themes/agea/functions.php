@@ -82,7 +82,7 @@
 		'capability_type'   => 'post',
 		'hierarchical'      => false,
 		'has_archive'       => true,
-		'rewrite'           => array('slug' => 'contact'),
+		'rewrite'           => array('slug' => 'contact-infos'),
 		'supports'          => array('title', 'editor', 'author', 'excerpt', 'thumbnail'),
 		'show_in_nav_menus' => true
 	)	
