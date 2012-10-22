@@ -100,8 +100,8 @@
 
 	function comment_rh($fiche)
 	{
-		echo '<label for="comment_rh">Commentaire RH</label>';
-		wp_editor("","comment_rh",array(
+		//echo '<label for="comment_rh">Commentaire RH</label>';
+		wp_editor("","commentrh",array(
 				"textarea_name"=>"comment_rh",
 				"teeny"=>true
 			));
