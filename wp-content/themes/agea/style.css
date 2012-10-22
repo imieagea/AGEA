@@ -809,3 +809,33 @@ background-position: -49px -122px;
 .image_une img {
 	width: 100%;
 }
+div.wpcf7.wpcf7{
+width: 350px;
+margin:0 auto;
+}
+.wpcf7 input,.wpcf7 textarea{
+vertical-align: middle;
+padding: 0;
+display: inline-block;
+border: 1px solid #AFAFAF;
+border-radius: 0 3px 3px 0;
+height: 30px;
+width: 350px;
+text-indent: 5px;
+-webkit-transition: all linear 200ms;
+-moz-transition: all linear 200ms;
+-o-transition: all linear 200ms;
+-ms-transition: all linear 200ms;
+transition: all linear 200ms;
+}
+.wpcf7 textarea{
+height: 200px;
+}
+.wpcf7 input:hover,.wpcf7 textarea:hover {
+background: #ECF0F5;
+}
+.wpcf7 input:focus,.wpcf7 textarea:focus {
+	outline: none;
+	-webkit-box-shadow: inset 1px 1px 3px 0px #C2C2C2;
+	box-shadow: inset 1px 1px 3px 0px #C2C2C2;
+}

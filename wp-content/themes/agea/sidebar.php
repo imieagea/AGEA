@@ -36,15 +36,14 @@ foreach ( $my_post_categories as $post_cat ) {
 			</div>
 			<div id="box_contact">
 				<div class="bandeau contact">Contact</div>
-				<p>
-					Emné FAKHRY <br />
-					4, rue de l'Héronnière <br />
-					44000 Nantes <br />
-					Mail : rg-paysloire@agea.fr <br />
-					Portable : 06 58 69 00 73 <br />
-					Fax : 02 40 69 81 14 <br />
-				</p>
-				<a href="" class="right_button contact_link">Contactez-nous</a><div class="clear"></div>
+				<?php 
+			$contact = new WP_Query('post_type=contact&post_ID=43&posts_per_page=1'); 
+			if($contact->have_posts()) : while($contact->have_posts()) : $contact-> the_post(); ?>
+
+					<?php the_content();?>
+					
+					<?php endwhile;endif; ?>	
+				<a href="<?php echo get_permalink( 45); ?>" class="right_button contact_link">Contactez-nous</a><div class="clear"></div>
 			</div>
 		</aside>
 		<div class="clear"></div>

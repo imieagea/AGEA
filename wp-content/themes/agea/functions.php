@@ -66,7 +66,30 @@
 		'show_in_nav_menus' => true
 	)	
 	);
+	
+		register_post_type('Contact', array(
+		'label'             => 'Contact',
+		'add_new_item'      =>'Ajouter un contact',
+		'edit_item'         =>'Editer un contact',
+		'new_item'          =>'Ajouter un contact',
+		'view_item'         =>'Consulter une contact',
+		'not_found'         =>'contact non trouvée',
+		'menu_name'         =>'contact',
+		'singular_label'    => 'contact',
+		'menu_position'		=> 20,  
+		'public'            => true,
+		'show_ui'           => true,
+		'capability_type'   => 'post',
+		'hierarchical'      => false,
+		'has_archive'       => true,
+		'rewrite'           => array('slug' => 'contact'),
+		'supports'          => array('title', 'editor', 'author', 'excerpt', 'thumbnail'),
+		'show_in_nav_menus' => true
+	)	
+	);
 	register_nav_menu( 'menu', 'Menu' );
+	
+	
 
 	//On ajoute les meta box pour la fiche candidat
 	add_action("admin_init", "admin_init");
