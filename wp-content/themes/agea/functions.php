@@ -43,7 +43,9 @@
 		"rewrite" 			=> true, "slug" => 'departements' )
 	);
 	
-	
+		
+
+		//On crée un post stype pour les infos à la une.
 		register_post_type('news', array(
 		'label'             => 'A la une',
 		'add_new_item'      =>'Ajouter une news',
@@ -65,5 +67,19 @@
 	)	
 	);
 	register_nav_menu( 'menu', 'Menu' );
+
+	//On ajoute les meta box pour la fiche candidat
+	add_action("admin_init", "admin_init");
+	function admin_init()
+	{
+		add_meta_box("comment_rh","Commentaire RH: ","comment_rh","fiche","normal","low");
+	}
+
+	function comment_rh($fiche)
+	{
+		echo '<label for="comment_rh">Commentaire RH</label>';
+		wp_editor("","comment_rh");
+	}
+
 
 ?>
