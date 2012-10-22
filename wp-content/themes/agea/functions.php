@@ -21,7 +21,7 @@
 		'hierarchical'      => false,
 		'has_archive'       => true,
 		'rewrite'           => array('slug' => 'fiche'),
-		'supports'          => array('title', 'editor', 'author', 'excerpt', 'thumbnail'),
+		'supports'          => array('title', 'editor'),
 		'show_in_nav_menus' => true
 	)	
 	);
@@ -101,7 +101,10 @@
 	function comment_rh($fiche)
 	{
 		echo '<label for="comment_rh">Commentaire RH</label>';
-		wp_editor("","comment_rh");
+		wp_editor("","comment_rh",array(
+				"textarea_name"=>"comment_rh",
+				"teeny"=>true
+			));
 	}
 
 
