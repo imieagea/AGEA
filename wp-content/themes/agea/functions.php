@@ -25,23 +25,6 @@
 		'show_in_nav_menus' => true
 	)	
 	);
-
-	//
-	//Puis la taxonomy qui sera utilisée pour les fiches
-	register_taxonomy( "mobilite_géographique", array( "fiche" ), array(
-		"hierarchical" 		=> true,
-		"label" 			=> "Mobilité géographique",
-		"labels"			=> array(
-			"name" => "Mobilité géographique",
-			"search_name" => "Rechercher par mobilité géographique",
-			"singular_name" => "Département",
-			"add_new_item" => "Ajouter un département",
-			"choose_from_most_used" => null,
-			"parent_item" => "Ce select ne sert à rien et il ne faut pas l'utiliser =D",
-			"most_used" => null,
-			"separate_items_with_commas" => "Séparez les départements par des virgules"),
-		"rewrite" 			=> true, "slug" => 'departements' )
-	);
 	
 		
 
@@ -89,15 +72,29 @@
 	);
 	register_nav_menu( 'menu', 'Menu' );
 	
-	
+	//On définie les départements
+	$departements = array(
+		'44'      	  => 'Loire-Atlantique',
+		'35' 		  => 'Ille-et-Vilaine',
+		'53'          => 'Mayenne',
+		'49'          => 'Maine-et-Loire',
+		'72'          => 'Sarthe',
+		'85'  	      => 'Vendée',
+		'22'  	      => 'Côtes-d\'Armor',
+		'29'  	      => 'Finistère',
+		'56'  	      => 'Morbihan'
+	);
 
-	//On ajoute les meta box pour la fiche candidat
+	//On ajoute les meta box (champs supplémentaires) pour la fiche candidat
 	add_action("admin_init", "admin_init");
 	function admin_init()
 	{
 		add_meta_box("comment_rh","Commentaire RH: ","comment_rh","fiche","normal","low");
+		add_meta_box("departements","Mobilité géographique : ","departements","fiche","normal","high");
 	}
 
+	
+	//Pour le champ commentaire, on utilise la fonction wp_editor de wordpress qui génère un éditeur WYSIWYG
 	function comment_rh($fiche)
 	{
 		//echo '<label for="comment_rh">Commentaire RH</label>';
@@ -107,5 +104,42 @@
 			));
 	}
 
+	//Fonction qui gère l'affichage du champ dans l'admin
+	function departements($fiche)
+	{
+		wp_nonce_field( 'departements-nonce_'.$fiche->ID, 'departements-nonce');
+		$departements_n = get_post_meta($fiche->ID,'_departements',false);
+		/*$types_biens_n = get_post_meta($fiche->ID,'_type_biens',false);
+		$all_type_biens_n = get_post_meta($fiche->ID,'_all_type_biens',true);*/
+		global $departements;
+		foreach($departements as $t => $ty){
+			$ck = (in_array((String)$t,$departements_n)) ? 'checked' :'';
+			echo '<input type="checkbox" name="departements[]" id="checkbox-'.$t.'" value="'.$t.'" '.$ck.'  /> <label for="checkbox-'.$t.'">('.$t.') '.ucfirst($ty).'</label>';
+			echo '<br/>';
+		}
+	}
 
+	//On définie les fonctions pour enregistrer 
+	add_action('save_post','save_fiche');
+	function save_fiche($ficheID)
+	{
+		if ( !current_user_can( 'edit_post', $ficheID ) )
+		return $ficheID;
+
+		if ( isset( $_POST['departements'] ) ) {
+			check_admin_referer('departements-nonce_'.$_POST['post_ID'], 'departements-nonce') ;
+			delete_post_meta($ficheID, "_departements");
+			foreach($_POST['departements'] as $i=>$c){
+				add_post_meta($ficheID, "_departements", $c); 
+			}
+		}
+
+	}
+
+	if(is_admin())
+	// POUR LE BACK OFFICE
+		get_template_part( 'functs', 'adminonly' );
+	else
+		// POUR LE FRONT OFFICE
+		get_template_part( 'functs', 'frontendonly' );
 ?>
