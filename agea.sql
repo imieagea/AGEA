@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Lun 22 Octobre 2012 à 09:35
+-- Généré le : Lun 22 Octobre 2012 à 09:56
 -- Version du serveur: 5.0.27
 -- Version de PHP: 5.3.8
 
@@ -291,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   PRIMARY KEY  (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=98 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=104 ;
 
 --
 -- Contenu de la table `wp_postmeta`
@@ -377,14 +377,20 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (86, 41, '_edit_last', '1'),
 (87, 41, '_edit_lock', '1350897252:1'),
 (89, 43, '_edit_last', '1'),
-(90, 43, '_edit_lock', '1350896657:1'),
+(90, 43, '_edit_lock', '1350899570:1'),
 (91, 45, '_edit_last', '1'),
-(92, 45, '_edit_lock', '1350898362:1'),
+(92, 45, '_edit_lock', '1350898791:1'),
 (93, 47, '_form', '<p>Votre nom (obligatoire)<br />\n    [text* your-name] </p>\n\n<p>Votre email (obligatoire)<br />\n    [email* your-email] </p>\n\n<p>Sujet<br />\n    [text your-subject] </p>\n\n<p>Votre message<br />\n    [textarea your-message] </p>\n\n<p>[submit "Envoyer"]</p>'),
 (94, 47, '_mail', 'a:7:{s:7:"subject";s:14:"[your-subject]";s:6:"sender";s:26:"[your-name] <[your-email]>";s:4:"body";s:174:"De : [your-name] <[your-email]>\nSujet : [your-subject]\n\nCorps du message :\n[your-message]\n\n--\nCe email a été envoyé via formulaire de contact le Agea http://127.0.0.1/agea";s:9:"recipient";s:18:"wyllen44@gmail.com";s:18:"additional_headers";s:0:"";s:11:"attachments";s:0:"";s:8:"use_html";s:0:"";}'),
 (95, 47, '_mail_2', 'a:8:{s:6:"active";s:0:"";s:7:"subject";s:14:"[your-subject]";s:6:"sender";s:26:"[your-name] <[your-email]>";s:4:"body";s:118:"Corps du message :\n[your-message]\n\n--\nCe email a été envoyé via formulaire de contact le Agea http://127.0.0.1/agea";s:9:"recipient";s:12:"[your-email]";s:18:"additional_headers";s:0:"";s:11:"attachments";s:0:"";s:8:"use_html";s:0:"";}'),
 (96, 47, '_messages', 'a:13:{s:12:"mail_sent_ok";s:42:"Votre message a bien été envoyé. Merci.";s:12:"mail_sent_ng";s:93:"Failed to send your message. Please try later or contact the administrator by another method.";s:16:"validation_error";s:76:"Erreur de validation. Veuillez vérifier les champs et soumettre à nouveau.";s:4:"spam";s:93:"Failed to send your message. Please try later or contact the administrator by another method.";s:12:"accept_terms";s:61:"Merci de bien vouloir accepter les conditions pour continuer.";s:13:"invalid_email";s:32:"L''adresse email semble invalide.";s:16:"invalid_required";s:38:"Veuillez remplir le champ obligatoire.";s:17:"captcha_not_match";s:28:"Le code entre est incorrect.";s:13:"upload_failed";s:39:"Impossible de télécharger le fichier.";s:24:"upload_file_type_invalid";s:39:"Ce type de fichier n''est pas autorisé.";s:21:"upload_file_too_large";s:31:"Ce fichier est trop volumineux.";s:23:"upload_failed_php_error";s:64:"Impossible de télécharger le fichier. Une erreur est survenue.";s:23:"quiz_answer_not_correct";s:30:"Votre réponse est incorrecte.";}'),
-(97, 47, '_additional_settings', '');
+(97, 47, '_additional_settings', ''),
+(98, 51, '_edit_last', '1'),
+(99, 51, '_edit_lock', '1350898992:1'),
+(100, 43, '_wp_trash_meta_status', 'publish'),
+(101, 43, '_wp_trash_meta_time', '1350899667'),
+(102, 53, '_edit_last', '1'),
+(103, 53, '_edit_lock', '1350899601:1');
 
 -- --------------------------------------------------------
 
@@ -421,7 +427,7 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=50 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
 
 --
 -- Contenu de la table `wp_posts`
@@ -470,13 +476,17 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (40, 1, '2012-10-21 23:17:27', '2012-10-21 22:17:27', '', 'Test2', '', 'inherit', 'open', 'open', '', '39-revision', '', '', '2012-10-21 23:17:27', '2012-10-21 22:17:27', '', 39, 'http://127.0.0.1/agea/39-revision/', 0, 'revision', '', 0),
 (41, 1, '2012-10-21 23:17:59', '2012-10-21 22:17:59', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae leo lectus, eu facilisis erat. Ut feugiat imperdiet consectetur. Sed ante ante, commodo eu suscipit et, pulvinar et ante. Pellentesque ac purus odio, vel interdum enim. Quisque lobortis fermentum elit, ac consectetur urna congue sit amet. Pellentesque vehicula commodo adipiscing. dum ipsum orci vel mi.', 'Test3', '', 'publish', 'open', 'open', '', 'test3', '', '', '2012-10-21 23:17:59', '2012-10-21 22:17:59', '', 0, 'http://127.0.0.1/agea/?p=41', 0, 'post', '', 0),
 (42, 1, '2012-10-21 23:17:53', '2012-10-21 22:17:53', '', 'Test3', '', 'inherit', 'open', 'open', '', '41-revision', '', '', '2012-10-21 23:17:53', '2012-10-21 22:17:53', '', 41, 'http://127.0.0.1/agea/41-revision/', 0, 'revision', '', 0),
-(43, 1, '2012-10-22 10:02:53', '2012-10-22 09:02:53', 'Emné FAKHRY\r\n4, rue de l''Héronnière\r\n44000 Nantes\r\n<strong>Mail</strong> : rg-paysloire@agea.fr\r\n<strong>Portable</strong> : 06 58 69 00 73\r\n<strong>Fax</strong> : 02 40 69 81 14', 'Contact Sidebar', '', 'publish', 'closed', 'closed', '', 'contact-sidebar', '', '', '2012-10-22 10:04:13', '2012-10-22 09:04:13', '', 0, 'http://127.0.0.1/agea/?post_type=contact&#038;p=43', 0, 'contact', '', 0),
-(44, 1, '2012-10-22 10:03:55', '2012-10-22 09:03:55', 'Emné FAKHRY\n4, rue de l''Héronnière\n44000 Nantes\n<strong>Mail</strong> : rg-paysloire@agea.fr\n<strong>Portable</strong> : 06 58 69 00 73\n<strong>Fax</strong> : 02 40 69 81 14', 'Contact Sidebar', '', 'inherit', 'open', 'open', '', '43-autosave', '', '', '2012-10-22 10:03:55', '2012-10-22 09:03:55', '', 43, 'http://127.0.0.1/agea/43-autosave/', 0, 'revision', '', 0),
+(43, 1, '2012-10-22 10:02:53', '2012-10-22 09:02:53', 'Emné FAKHRY\r\n4, rue de l''Héronnière\r\n44000 Nantes\r\n<strong>Mail</strong> : rg-paysloire@agea.fr\r\n<strong>Portable</strong> : 06 58 69 00 73\r\n<strong>Fax</strong> : 02 40 69 81 14', 'Contact Sidebar', '', 'trash', 'closed', 'closed', '', 'contact-sidebar', '', '', '2012-10-22 10:54:27', '2012-10-22 09:54:27', '', 0, 'http://127.0.0.1/agea/?post_type=contact&#038;p=43', 0, 'contact', '', 0),
+(44, 1, '2012-10-22 10:42:50', '2012-10-22 09:42:50', 'Emné FAKHRY\n4, rue de l''Héronnière\n44000 Nantes\n<strong>Mail</strong> : rg-paysloire@agea.fr\n<strong>Portable</strong> : 06 58 69 00 73\n<strong>Fax</strong> : 02 40 69 81 14', 'Contact Sidebar', '', 'inherit', 'open', 'open', '', '43-autosave', '', '', '2012-10-22 10:42:50', '2012-10-22 09:42:50', '', 43, 'http://127.0.0.1/agea/43-autosave/', 0, 'revision', '', 0),
 (45, 1, '2012-10-22 10:16:43', '2012-10-22 09:16:43', '[contact-form-7 id="47" title="Contact form 1"]', 'Contact', '', 'publish', 'open', 'open', '', 'contact', '', '', '2012-10-22 10:19:03', '2012-10-22 09:19:03', '', 0, 'http://127.0.0.1/agea/?page_id=45', 0, 'page', '', 0),
 (46, 1, '2012-10-22 10:16:36', '2012-10-22 09:16:36', '', 'Auto Draft', '', 'inherit', 'open', 'open', '', '45-revision', '', '', '2012-10-22 10:16:36', '2012-10-22 09:16:36', '', 45, 'http://127.0.0.1/agea/45-revision/', 0, 'revision', '', 0),
 (47, 1, '2012-10-22 10:18:20', '2012-10-22 09:18:20', '<p>Votre nom (obligatoire)<br />\r\n    [text* your-name] </p>\r\n\r\n<p>Votre email (obligatoire)<br />\r\n    [email* your-email] </p>\r\n\r\n<p>Sujet<br />\r\n    [text your-subject] </p>\r\n\r\n<p>Votre message<br />\r\n    [textarea your-message] </p>\r\n\r\n<p>[submit "Envoyer"]</p>\n[your-subject]\n[your-name] <[your-email]>\nDe : [your-name] <[your-email]>\r\nSujet : [your-subject]\r\n\r\nCorps du message :\r\n[your-message]\r\n\r\n--\r\nCe email a été envoyé via formulaire de contact le Agea http://127.0.0.1/agea\nwyllen44@gmail.com\n\n\n\n\n[your-subject]\n[your-name] <[your-email]>\nCorps du message :\r\n[your-message]\r\n\r\n--\r\nCe email a été envoyé via formulaire de contact le Agea http://127.0.0.1/agea\n[your-email]\n\n\n\nVotre message a bien été envoyé. Merci.\nFailed to send your message. Please try later or contact the administrator by another method.\nErreur de validation. Veuillez vérifier les champs et soumettre à nouveau.\nFailed to send your message. Please try later or contact the administrator by another method.\nMerci de bien vouloir accepter les conditions pour continuer.\nL''adresse email semble invalide.\nVeuillez remplir le champ obligatoire.\nLe code entre est incorrect.\nImpossible de télécharger le fichier.\nCe type de fichier n''est pas autorisé.\nCe fichier est trop volumineux.\nImpossible de télécharger le fichier. Une erreur est survenue.\nVotre réponse est incorrecte.', 'Contact form 1', '', 'publish', 'open', 'open', '', 'contact-form-1', '', '', '2012-10-22 10:18:51', '2012-10-22 09:18:51', '', 0, 'http://127.0.0.1/agea/?post_type=wpcf7_contact_form&#038;p=47', 0, 'wpcf7_contact_form', '', 0),
 (48, 1, '2012-10-22 10:16:43', '2012-10-22 09:16:43', '', 'Contact', '', 'inherit', 'open', 'open', '', '45-revision-2', '', '', '2012-10-22 10:16:43', '2012-10-22 09:16:43', '', 45, 'http://127.0.0.1/agea/45-revision-2/', 0, 'revision', '', 0),
-(49, 1, '2012-10-22 10:20:05', '2012-10-22 09:20:05', '[contact-form-7 id="47" title="Contact form 1"]', 'Contact', '', 'inherit', 'open', 'open', '', '45-autosave', '', '', '2012-10-22 10:20:05', '2012-10-22 09:20:05', '', 45, 'http://127.0.0.1/agea/45-autosave/', 0, 'revision', '', 0);
+(49, 1, '2012-10-22 10:40:58', '2012-10-22 09:40:58', '[contact-form-7 id="47" title="Contact form 1"]', 'Contact', '', 'inherit', 'open', 'open', '', '45-autosave', '', '', '2012-10-22 10:40:58', '2012-10-22 09:40:58', '', 45, 'http://127.0.0.1/agea/45-autosave/', 0, 'revision', '', 0),
+(50, 1, '2012-10-22 10:36:11', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2012-10-22 10:36:11', '0000-00-00 00:00:00', '', 0, 'http://127.0.0.1/agea/?post_type=fiche&p=50', 0, 'fiche', '', 0),
+(51, 1, '2012-10-22 10:44:50', '2012-10-22 09:44:50', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae leo lectus, eu facilisis erat. Ut feugiat imperdiet consectetur. Sed ante ante, commodo eu suscipit et, pulvinar et ante. Pellentesque ac purus odio, vel interdum enim. Quisque lobortis fermentum elit, ac consectetur urna congue sit amet. Pellentesque vehicula commodo adipiscing. dum ipsum orci vel mi.', 'Mentions légales', '', 'publish', 'open', 'open', '', 'mentions-legales', '', '', '2012-10-22 10:44:50', '2012-10-22 09:44:50', '', 0, 'http://127.0.0.1/agea/?page_id=51', 0, 'page', '', 0),
+(52, 1, '2012-10-22 10:44:40', '2012-10-22 09:44:40', '', 'Mentions légales', '', 'inherit', 'open', 'open', '', '51-revision', '', '', '2012-10-22 10:44:40', '2012-10-22 09:44:40', '', 51, 'http://127.0.0.1/agea/51-revision/', 0, 'revision', '', 0),
+(53, 1, '2012-10-22 10:55:08', '2012-10-22 09:55:08', 'Emné FAKHRY\r\n4, rue de l’Héronnière\r\n44000 Nantes\r\n<strong>Mail</strong> : rg-paysloire@agea.fr\r\n<strong>Portable</strong> : 06 58 69 00 73\r\n<strong>Fax</strong> : 02 40 69 81 14', 'Contact Sidebar', '', 'publish', 'closed', 'closed', '', 'contact-sidebar', '', '', '2012-10-22 10:55:08', '2012-10-22 09:55:08', '', 0, 'http://127.0.0.1/agea/?post_type=contact_infos&#038;p=53', 0, 'contact_infos', '', 0);
 
 -- --------------------------------------------------------
 

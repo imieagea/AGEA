@@ -37,7 +37,7 @@ foreach ( $my_post_categories as $post_cat ) {
 			<div id="box_contact">
 				<div class="bandeau contact">Contact</div>
 				<?php 
-			$contact = new WP_Query('post_type=contact&post_ID=43&posts_per_page=1'); 
+			$contact = new WP_Query('post_type=contact_infos&post_ID=53&posts_per_page=1'); 
 			if($contact->have_posts()) : while($contact->have_posts()) : $contact-> the_post(); ?>
 
 					<?php the_content();?>

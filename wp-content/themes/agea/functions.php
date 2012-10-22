@@ -67,7 +67,7 @@
 	)	
 	);
 	
-		register_post_type('Contact', array(
+		register_post_type('contact_infos', array(
 		'label'             => 'Contact',
 		'add_new_item'      =>'Ajouter un contact',
 		'edit_item'         =>'Editer un contact',
